@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <div className="h-[70vh] relative">
-      <div className="absolute top-0 left-0 w-full h-full bg-white opacity-70"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-white opacity-80"></div>
       <h1 className="absolute flex justify-center items-center w-full h-full text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
         I Grow By Helping People In Need
       </h1>
