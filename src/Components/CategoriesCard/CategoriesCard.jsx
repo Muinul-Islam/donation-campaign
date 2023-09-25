@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const CategoriesCard = ({ Category }) => {
-  console.log(Category);
   const {
     id,
     picture,
@@ -21,21 +22,23 @@ const CategoriesCard = ({ Category }) => {
     color: text_button_bg_color,
   };
   return (
-    <div className="card card-compact bg-base-100 shadow-lg" style={bgStyle}>
-      <figure>
-        <img src={picture} alt="Category Image" className="w-full" />
-      </figure>
-      <div className="card-body">
-        <div className="text-base w-20 rounded-md" style={categoryStyle}>
-          <p className="font-semibold p-1  text-center" style={titleStyle}>
-            {category}
-          </p>
+    <Link to={`/category/${id}`}>
+      <div className="card card-compact bg-base-100 shadow-lg" style={bgStyle}>
+        <figure>
+          <img src={picture} alt="Category Image" className="w-full" />
+        </figure>
+        <div className="card-body">
+          <div className="text-base w-20 rounded-md" style={categoryStyle}>
+            <p className="font-semibold p-1  text-center" style={titleStyle}>
+              {category}
+            </p>
+          </div>
+          <h2 className="card-title font-semibold" style={titleStyle}>
+            {title}
+          </h2>
         </div>
-        <h2 className="card-title font-semibold" style={titleStyle}>
-          {title}
-        </h2>
       </div>
-    </div>
+    </Link>
   );
 };
 

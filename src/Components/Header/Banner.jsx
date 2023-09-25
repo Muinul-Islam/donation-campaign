@@ -2,7 +2,7 @@ const Banner = () => {
   return (
     <div className="h-[70vh] relative">
       <div className="absolute top-0 left-0 w-full h-full bg-white opacity-80"></div>
-      <h1 className="absolute flex justify-center items-center w-full h-full text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+      <h1 className="absolute flex justify-center items-center w-full h-full text-2xl md:text-3xl lg:text-5xl font-bold">
         I Grow By Helping People In Need
       </h1>
       <img
@@ -11,7 +11,7 @@ const Banner = () => {
         alt=""
       />
       <div className="flex justify-center items-center">
-        <div className="absolute bottom-[32%] w-[75%] md:w-[490px] ">
+        <div className="absolute bottom-[30%] w-[75%] md:w-[490px] ">
           <form>
             <div className="flex">
               <div className=" inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
