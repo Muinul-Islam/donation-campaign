@@ -1,4 +1,9 @@
 const Banner = () => {
+  const handleSearchCategory = (e) => {
+    e.preventDefault();
+    console.log(e.target.search.value);
+  };
+
   return (
     <div className="h-[70vh] relative">
       <div className="absolute top-0 left-0 w-full h-full bg-white opacity-80"></div>
@@ -12,7 +17,7 @@ const Banner = () => {
       />
       <div className="flex justify-center items-center">
         <div className="absolute bottom-[30%] w-[75%] md:w-[490px] ">
-          <form>
+          <form onSubmit={handleSearchCategory}>
             <div className="flex">
               <div className=" inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
               <input
