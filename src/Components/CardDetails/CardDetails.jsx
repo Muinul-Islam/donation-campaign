@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CardDetails = () => {
   const [cardDetail, setCardDetail] = useState([]);
 
   const { id } = useParams();
   const cardDetails = useLoaderData();
-  console.log(id);
 
   useEffect(() => {
     const detail = cardDetails?.find((card) => card.id === parseInt(id));
@@ -14,7 +14,6 @@ const CardDetails = () => {
     setCardDetail(detail);
   }, [cardDetails, id]);
 
-  console.log(cardDetail);
   const { picture, description, title, price, text_button_bg_color } =
     cardDetail;
 
@@ -24,6 +23,26 @@ const CardDetails = () => {
 
   const handleDonateBtn = () => {
     const addDonation = [];
+
+    const donatedCategories = JSON.parse(localStorage.getItem("donated"));
+
+    if (!donatedCategories) {
+      addDonation.push(cardDetail);
+      localStorage.setItem("donated", JSON.stringify(addDonation));
+      Swal.fire({ icon: "success", text: "Successfully Donated" });
+    } else {
+      const isDonated = donatedCategories.find(
+        (donate) => donate.id === parseInt(id)
+      );
+
+      if (!isDonated) {
+        addDonation.push(...donatedCategories, cardDetail);
+        localStorage.setItem("donated", JSON.stringify(addDonation));
+        Swal.fire({ icon: "success", text: "Successfully Donated" });
+      } else {
+        Swal.fire({ icon: "error", text: "Donated Earlier" });
+      }
+    }
   };
 
   return (
